@@ -12,7 +12,12 @@
         class="com.ev.RapMusic">
     </bean>
     <bean id="musicBean1"
-          class="com.ev.ClassicalMusic">
+          class="com.ev.ClassicalMusic"
+    init-method="doMyInit"
+    destroy-method="doMyDestroy"
+    scope="prototype"
+    factory-method="getClassicalMusic"
+    >
     </bean>
     <bean id="musicBean2"
           class="com.ev.RockMusic">
