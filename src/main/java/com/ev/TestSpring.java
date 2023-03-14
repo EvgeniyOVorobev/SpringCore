@@ -8,6 +8,7 @@ public class TestSpring {
        MusicPlayer music= context.getBean("musicPlayer", MusicPlayer.class) ;
 
         music.playMusic();
+        System.out.println(music.getName()+" "+music.getValue());
        context.close();
     }
 }
