@@ -5,6 +5,10 @@
 
     <bean id="musicBean"
         class="com.ev.RapMusic">
+    </bean>
+    <bean id="musicPlayer"
+        class="com.ev.MusicPlayer">
+        <constructor-arg ref="musicBean" />
 
 
     </bean>
