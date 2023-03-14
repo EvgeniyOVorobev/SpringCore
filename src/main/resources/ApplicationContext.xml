@@ -28,7 +28,8 @@
     </bean>
 
     <bean id="musicPlayer"
-        class="com.ev.MusicPlayer">
+        class="com.ev.MusicPlayer"
+    scope="prototype">
         <property name="musicList" ref="stages"/>
         <property name="name" value="${musicPlayer.name}"/>
         <property name="value" value="${musicPlayer.value}"/>
