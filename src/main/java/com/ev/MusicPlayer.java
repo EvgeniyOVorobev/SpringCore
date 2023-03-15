@@ -15,12 +15,26 @@ import java.util.List;
 public class MusicPlayer {
     @Autowired
     @Qualifier("classicalMusic")
+    private List<Music> musicList;
+
+    @Autowired
+    @Qualifier("classicalMusic")
     private Music music;
+    @Autowired
+    @Qualifier("rockMusic")
+    private Music music1;
+    @Autowired
+    @Qualifier("rapMusic")
+    private Music music2;
     @Value("${musicPlayer.value}")
     private int value;
 
     public void playMusic() {
-        System.out.println(music.getSong());
+        for (Music m:musicList
+             ) {
+            System.out.println(m.getSong());
+
+        };
     }
     public void getValue(){
         System.out.println(value);
