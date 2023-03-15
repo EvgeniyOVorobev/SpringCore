@@ -7,38 +7,7 @@
        http://www.springframework.org/schema/context
        http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <context:property-placeholder location="classpath:musicPlayer.properties"/>
-    <bean id="musicBean"
-        class="com.ev.RapMusic">
-    </bean>
-    <bean id="musicBean1"
-          class="com.ev.ClassicalMusic"
-    init-method="doMyInit"
-    destroy-method="doMyDestroy"
-    scope="prototype"
-    factory-method="getClassicalMusic"
-    >
-    </bean>
-    <bean id="musicBean2"
-          class="com.ev.RockMusic">
-    </bean>
-    <bean id="stages" class="java.util.ArrayList">
-        <constructor-arg>
-            <list>
-                <ref bean="musicBean" />
-                <ref bean="musicBean1" />
-                <ref bean="musicBean2" />
-            </list>
-        </constructor-arg>
-    </bean>
+    <context:component-scan base-package="com.ev"/>
+    <context:property-placeholder location="musicPlayer.properties"/>
 
-    <bean id="musicPlayer"
-        class="com.ev.MusicPlayer"
-    scope="prototype">
-        <property name="musicList" ref="stages"/>
-        <property name="name" value="${musicPlayer.name}"/>
-        <property name="value" value="${musicPlayer.value}"/>
-
-
-    </bean>
 </beans>
